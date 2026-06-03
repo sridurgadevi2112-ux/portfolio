@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sridurgadevi Saravanan | Graphic Designer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #e94560;
+            --gold: #c9a227;
+            --light: #f5f5f5;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(233,69,96,0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .hero .tagline {
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .hero .subtitle {
+            font-size: 1rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-info a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info a:hover {
+            color: var(--gold);
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-15px); }
+            60% { transform: translateX(-50%) translateY(-8px); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            margin: 1rem auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-tag {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(26,26,46,0.95) 0%, transparent 100%);
+            padding: 2rem;
+            color: var(--white);
+            transform: translateY(60%);
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-overlay h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .portfolio-overlay .tag {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            margin-top: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Services */
+        .services {
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--light);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact .section-title {
+            color: var(--white);
+        }
+
+        .contact .section-title::after {
+            background: var(--gold);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .contact-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .contact-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+
+        .contact-card a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: var(--gold);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        footer span {
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Sridurgadevi</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Sridurgadevi Saravanan</h1>
+            <p class="tagline">Graphic Designer & Visual Storyteller</p>
+            <p class="subtitle">Creating stunning brand identities, social media designs, and visual experiences that leave a lasting impression. Passionate about turning ideas into beautiful realities.</p>
+            <div class="contact-info">
+                <a href="mailto:Sridurgadevi2112@gmail.com">📧 Sridurgadevi2112@gmail.com</a>
+                <a href="tel:+919894894882">📱 +91 98948 94882</a>
+                <a href="#">📍 Aduturai, Tamil Nadu</a>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Creative Designer with a Technical Edge</h3>
+                <p>I am a passionate Graphic Designer with a B.Sc in Computer Science, bringing a unique blend of creativity and technical knowledge to every project. My journey in design started with a love for drawing and calligraphy, which evolved into professional digital design.</p>
+                <p>I specialize in brand identity design, social media graphics, UI/UX mockups, and promotional materials. My technical background in HTML, CSS, and Python helps me understand the full design-to-development workflow.</p>
+                <div class="skills">
+                    <span class="skill-tag">Adobe Photoshop</span>
+                    <span class="skill-tag">Adobe Illustrator</span>
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">Canva</span>
+                    <span class="skill-tag">CorelDRAW</span>
+                    <span class="skill-tag">UI/UX Design</span>
+                    <span class="skill-tag">Brand Identity</span>
+                    <span class="skill-tag">Social Media Design</span>
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">Wireframing</span>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="/mnt/agents/upload/ChatGPT Image Feb 15, 2026, 01_32_47 PM.png" alt="Sridurgadevi Signature Design">
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2 class="section-title">My Portfolio</h2>
+        <div class="portfolio-grid">
+
+            <div class="portfolio-item">
+                <img src="/mnt/agents/upload/WhatsApp Image 2026-06-03 at 12.14.30 PM.jpeg" alt="Crush Cafe Logo">
+                <div class="portfolio-overlay">
+                    <h3>Crush Café</h3>
+                    <p>Elegant café branding with heart-shaped latte art and gold accents</p>
+                    <span class="tag">Brand Identity</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="/mnt/agents/upload/WhatsApp Image 2026-06-03 at 12.14.29 PM.jpeg" alt="Evo Shine Skincare">
+                <div class="portfolio-overlay">
+                    <h3>Evo Shine Luxury Skincare</h3>
+                    <p>Premium skincare brand visual with golden elegance and luxury feel</p>
+                    <span class="tag">Luxury Branding</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="/mnt/agents/upload/WhatsApp Image 2026-06-03 at 12.14.29 PM (1).jpeg" alt="Papa Ammu Design">
+                <div class="portfolio-overlay">
+                    <h3>Papa Ammu</h3>
+                    <p>Personalized name design with peacock feather and gold calligraphy</p>
+                    <span class="tag">Custom Typography</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="/mnt/agents/upload/file_00000000016c7208b58c75964e8f015a.png" alt="Mehendi Ramzan Offers">
+                <div class="portfolio-overlay">
+                    <h3>Sri Official Mehendi</h3>
+                    <p>Festive promotional poster for Ramzan offers with traditional elements</p>
+                    <span class="tag">Promotional Design</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="/mnt/agents/upload/ChatGPT Image May 30, 2026, 06_47_08 PM.png" alt="Luffy Gaming Logo">
+                <div class="portfolio-overlay">
+                    <h3>Luffy AWM King</h3>
+                    <p>Gaming logo with golden crown, wings, and electric effects</p>
+                    <span class="tag">Gaming Logo</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="/mnt/agents/upload/ChatGPT Image May 15, 2026, 01_04_17 PM.png" alt="Biryani Poster">
+                <div class="portfolio-overlay">
+                    <h3>Hot & Spicy Biryani</h3>
+                    <p>Food promotional poster with bold typography and special offer design</p>
+                    <span class="tag">Food Marketing</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="/mnt/agents/upload/ChatGPT Image May 16, 2026, 01_39_24 PM.png" alt="Bloom Elixir Perfume">
+                <div class="portfolio-overlay">
+                    <h3>Bloom Elixir Parfum</h3>
+                    <p>Luxury perfume advertisement with soft pink tones and elegant composition</p>
+                    <span class="tag">Product Advertising</span>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="/mnt/agents/upload/ChatGPT Image Feb 15, 2026, 01_29_14 PM.png" alt="Papa Ammu Blue Design">
+                <div class="portfolio-overlay">
+                    <h3>Papa Ammu - Blue Edition</h3>
+                    <p>Minimalist name design with peacock feather and royal blue accents</p>
+                    <span class="tag">Minimalist Design</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title">What I Offer</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Brand Identity</h3>
+                <p>Complete branding packages including logos, color palettes, typography, and brand guidelines.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Social Media Graphics</h3>
+                <p>Eye-catching posts, stories, banners, and promotional content for all platforms.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✨</div>
+                <h3>Custom Typography</h3>
+                <p>Personalized name designs, calligraphy art, and decorative lettering for special occasions.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🖼️</div>
+                <h3>Promotional Posters</h3>
+                <p>Event flyers, offer posters, festival designs, and marketing materials.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎮</div>
+                <h3>Gaming & Esports</h3>
+                <p>Custom gaming logos, team banners, and streamer overlays with dynamic effects.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📦</div>
+                <h3>Product Design</h3>
+                <p>Product mockups, packaging design, and advertising visuals for brands.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Let's Work Together</h2>
+        <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem; opacity: 0.9;">Have a project in mind? I'd love to hear about it. Let's create something amazing together!</p>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h4>Email</h4>
+                <a href="mailto:Sridurgadevi2112@gmail.com">Sridurgadevi2112@gmail.com</a>
+            </div>
+            <div class="contact-card">
+                <h4>Phone</h4>
+                <a href="tel:+919894894882">+91 98948 94882</a>
+            </div>
+            <div class="contact-card">
+                <h4>LinkedIn</h4>
+                <a href="https://linkedin.com/in/sridurgadevi-saravanan" target="_blank">linkedin.com/in/sridurgadevi-saravanan</a>
+            </div>
+            <div class="contact-card">
+                <h4>GitHub</h4>
+                <a href="https://github.com/sridurgadevi" target="_blank">github.com/sridurgadevi</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Designed with <span>❤</span> by Sridurgadevi Saravanan | 2026</p>
+    </footer>
+
+</body>
+</html>
